@@ -33,11 +33,13 @@ const PluginsList: FC<ToolBarCompProps> = ({ editorState, editor }) => {
           <div className="name">图片</div>
         </Button>
         <Popover
-          content={<Table editorState={editorState} editor={editor} />}
+          content={
+            <Table editorState={editorState} editor={editor} type="general" />
+          }
           position="rightTop"
         >
           <div>
-            <Button 
+            <Button
               className="w-full justify-start py-1 px-1 h-6 rounded-[4px] relative"
               variant="ghost"
             >
@@ -83,15 +85,27 @@ const PluginsList: FC<ToolBarCompProps> = ({ editorState, editor }) => {
         数据表
       </div>
       <div className="flex gap-1 flex-col">
-        <Button
-          className="w-full justify-start py-1 px-1 h-6 rounded-[4px]"
-          variant="ghost"
+        <Popover
+          content={
+            <Table editorState={editorState} editor={editor} type="general" />
+          }
+          position="rightTop"
         >
-          <div className="icon mr-1.5 flex items-center">
-            <IconTable />
+          <div>
+            <Button
+              className="w-full justify-start py-1 px-1 h-6 rounded-[4px] relative"
+              variant="ghost"
+            >
+              <div className="icon mr-1.5 flex items-center">
+                <IconTable />
+              </div>
+              <div className="name">电子表格</div>
+              <div className="more absolute right-[0px] top-1/2 -translate-y-1/2">
+                <ChevronRight />
+              </div>
+            </Button>
           </div>
-          <div className="name">数据表格</div>
-        </Button>
+        </Popover>
       </div>
     </div>
   );

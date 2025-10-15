@@ -1,7 +1,11 @@
 import { useState, type FC } from "react";
 import type { ToolBarCompProps } from "./index";
 
-const Table: FC<ToolBarCompProps> = ({ editorState, editor }) => {
+type TableType = {
+  type: string
+}
+
+const Table: FC<ToolBarCompProps & TableType> = ({ editorState, editor, type }) => {
   const tableCell = Array(10).fill(Array(10).fill(0));
   const [tableState, setTableState] = useState({
     row: 0,
